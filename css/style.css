@@ -1,0 +1,20 @@
+body{
+    background-color: beige;
+}
+
+main img{
+    width: 100%;
+}
+
+.my_rental-card{
+    height:80px;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: beige;
+
+}
+
+.my_bg-yellow{
+    background-color: goldenrod;
+}
