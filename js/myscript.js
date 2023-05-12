@@ -15,7 +15,7 @@ console.log(priceWithoutDiscount)
 
 //Dichiaro una variabile per poi stampare il prezzo scontato//
 
-let priceWhitDiscount;
+let priceWhitDiscount = 0 ;
 console.log(typeof(priceWhitDiscount))
 
 // Inizzilizzo un a variabile per lo sconto
