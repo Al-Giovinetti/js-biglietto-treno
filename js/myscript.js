@@ -19,21 +19,21 @@ let priceWhitDiscount;
 
 // Inizzilizzo un a variabile per lo sconto
 
-const specialDiscount = priceWithoutDiscount - priceWhitDiscount
+let specialDiscount = priceWithoutDiscount - priceWhitDiscount
 
 //Se l'età utente è minore di 18 allora
 
 if (userAge < 18){
     priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 20);
-    document.getElementById("final-price").innerHTML = priceWhitDiscount .toFixed(2);
-    document.getElementById("discount").innerHTML += specialDiscount  .toFixed(2)+ ", perchè minorenne";
+    document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
+    document.getElementById("discount").innerHTML += specialDiscount  .toFixed(2)+ "€ , perchè minorenne";
 }else if(userAge > 65){
     priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 40);
-    document.getElementById("final-price").innerHTML = priceWhitDiscount .toFixed(2);
-    document.getElementById("discount").innerHTML += specialDiscount .toFixed(2) + ", perchè sopra i 65";
+    document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
+    document.getElementById("discount").innerHTML += specialDiscount .toFixed(2) + "€, perchè sopra i 65";
 }else{
     priceWhitDiscount = priceWithoutDiscount 
-    document.getElementById("final-price").innerHTML = priceWhitDiscount .toFixed(2) ;
+    document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2) ;
     document.getElementById("discount").innerHTML = "prezzo per passeggero standard";
 }
 
