@@ -16,6 +16,7 @@ console.log(priceWithoutDiscount)
 //Dichiaro una variabile per poi stampare il prezzo scontato//
 
 let priceWhitDiscount;
+console.log(typeof(priceWhitDiscount))
 
 // Inizzilizzo un a variabile per lo sconto
 
@@ -26,10 +27,12 @@ let specialDiscount = priceWithoutDiscount - priceWhitDiscount
 if (userAge < 18){
     priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 20);
     document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
+    let specialDiscount = priceWithoutDiscount - priceWhitDiscount
     document.getElementById("discount").innerHTML += specialDiscount  .toFixed(2)+ "€ , perchè minorenne";
 }else if(userAge > 65){
     priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 40);
     document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
+    let specialDiscount = priceWithoutDiscount - priceWhitDiscount
     document.getElementById("discount").innerHTML += specialDiscount .toFixed(2) + "€, perchè sopra i 65";
 }else{
     priceWhitDiscount = priceWithoutDiscount 
