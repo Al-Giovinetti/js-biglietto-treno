@@ -23,8 +23,9 @@ console.log(typeof(priceWhitDiscount))
 let specialDiscount = priceWithoutDiscount - priceWhitDiscount
 
 //Se l'età utente è minore di 18 allora
-
-if (userAge < 18){
+if (isNaN(kmTravelled) || isNaN(userAge)){
+        document.getElementById("final-price").innerHTML = "I dati inseriti sono scorretti";
+}else if (userAge < 18){
     priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 20);
     document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
     let specialDiscount = priceWithoutDiscount - priceWhitDiscount
