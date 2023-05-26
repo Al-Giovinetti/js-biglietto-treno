@@ -1,43 +1,52 @@
 //Dichiaro variabili che saranno uguali all' input fornito//
-const kmTravelled = parseInt (prompt("Quanti km devi percorrere ?"));
+const kmTravelled = document.getElementById("user-km")
+const userAge = document.getElementById("user-age");
 
-const userAge = parseInt (prompt("Quanti anni hai ?"));
+const btnCalc = document.querySelector("button")
 
-//Stampa dei dati inseriti sulla pagina
-document.getElementById("km-travelled").innerHTML += kmTravelled;
+const output = document.getElementById("final-price")
+const output2 = document.getElementById("discount")
 
-document.getElementById("user-age").innerHTML += userAge;
+btnCalc.addEventListener("click",function(){
+    let tiketPrice = parseInt(kmTravelled.value) * 0.21
+    let discount;
+    let corretto=false
+    while(corretto==false){
+        if(isNaN(userAge.value) || isNaN(kmTravelled.value)){
+            alert("dati inseriti sbagliati - riprova")
+            corretto=true
+        }else{
+            corretto=true
 
-//Inizzializzo una variabile per identificare il prezzo non scontato//
+            if(userAge.value<18){
+                discount= tiketPrice / 100 * 20
+                tiketPrice = tiketPrice - (discount)
+            }else if (userAge.value>65){
+                discount= tiketPrice / 100 * 40
+                tiketPrice = tiketPrice - (discount)
+            }else{
+                discount="Tariffa standard"
+                tiketPrice = tiketPrice
+            }
+            output.innerHTML = "Prezzo finale: "+tiketPrice
+            const divPostTrain = document.querySelector("div.d-none")
+            if(isNaN(discount)){
+                output2.innerHTML=discount
+                divPostTrain.classList.remove("d-none")
 
-let priceWithoutDiscount =  kmTravelled * 0.21 ;
-console.log(priceWithoutDiscount)
+            }else{
+                output2.innerHTML = "Hai subito uno sconto di: " + discount
+                divPostTrain.classList.remove("d-none")
+            }
+    
+            kmTravelled.value = " "
+            userAge.value = " "
+        }
+    }
+    
+})
 
-//Dichiaro una variabile per poi stampare il prezzo scontato//
 
-let priceWhitDiscount = 0 ;
-console.log(typeof(priceWhitDiscount))
 
-// Inizzilizzo un a variabile per lo sconto
 
-let specialDiscount = priceWithoutDiscount - priceWhitDiscount
-
-//Se l'età utente è minore di 18 allora
-if (isNaN(kmTravelled) || isNaN(userAge)){
-        document.getElementById("final-price").innerHTML = "I dati inseriti sono scorretti";
-}else if (userAge < 18){
-    priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 20);
-    document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
-    let specialDiscount = priceWithoutDiscount - priceWhitDiscount
-    document.getElementById("discount").innerHTML += specialDiscount  .toFixed(2)+ "€ , perchè minorenne";
-}else if(userAge > 65){
-    priceWhitDiscount = priceWithoutDiscount -( priceWithoutDiscount / 100 * 40);
-    document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2);
-    let specialDiscount = priceWithoutDiscount - priceWhitDiscount
-    document.getElementById("discount").innerHTML += specialDiscount .toFixed(2) + "€, perchè sopra i 65";
-}else{
-    priceWhitDiscount = priceWithoutDiscount 
-    document.getElementById("final-price").innerHTML = "€"+ priceWhitDiscount .toFixed(2) ;
-    document.getElementById("discount").innerHTML = "prezzo per passeggero standard";
-}
 
